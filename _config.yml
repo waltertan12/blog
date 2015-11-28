@@ -10,7 +10,7 @@ title: Dublin Donut 2.0
 email: waltertan12@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Things I find mildly interesting
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "http://waltertan12.github.io" # the base hostname & protocol for your site
 twitter_username: waltertanistan
 github_username:  waltertan12
