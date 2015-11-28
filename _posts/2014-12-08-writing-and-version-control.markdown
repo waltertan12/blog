@@ -6,7 +6,7 @@ categories: version control
 ---
 Having this blog has really forced me to examine the way I write. When I write a story or a paper, I just use some text editor and save only the latest copy. When I code something, I maintain all versions of the code and have the ability to branch that code. Since both processes are ultimately just manipulations of text, why did they differ? And why didn’t I use Git to write my short stories in college? (I did, however, write them in SublimeText. Thank you based distraction free mode.)
 
-image
+![word vs git](http://33.media.tumblr.com/68986ef8b0e2c16ff0d5505c201181a3/tumblr_inline_ng8edmQuaW1qepten.png)
 
 I was texting Mike about this a couple days ago and he mentioned that he always assumed that authors used version control though didn’t know what software that they used. He also mentioned a great market for this type of product – law firms. With the amount of paperwork that they handle and track, it’d be a no-brainer for them to have some form of version control on their documents.
 
@@ -14,7 +14,7 @@ This got me thinking about my own work experiences. At the lab, we do have a dat
 
 So, I looked around for a product that filled this niche. Guess what I found? Draft, a Y-Combinator backed online text-editor, complete with version control. Can’t say I’m surprised, but take a look. 
 
-image
+![draft](http://38.media.tumblr.com/52212bbdcd04e3dad71ed3cced8a34a5/tumblr_inline_ng8e5ipP0a1qepten.png)
 
 It’s clean, minimalist web app that’s simple to use. It’s even got what they call a Hemingway Mode based off the Hemingway-esque advice Write drunk; edit sober. This function disables any ability to edit the document and forces the user to do what they should be doing – writing. I’m definitely going to use this app and function the next time I write a story.
 
