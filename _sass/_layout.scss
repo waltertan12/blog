@@ -87,8 +87,19 @@
             &:not(:last-child) {
                 margin-right: 0;
             }
+
             margin-left: 20px;
         }
+    }
+}
+
+.page-link {
+    width: 75px;
+    text-align: center;
+    &:hover {
+        color: white;
+        background-color: lightblue;
+        padding: 15px 0;
     }
 }
 
