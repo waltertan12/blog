@@ -1,0 +1,32 @@
+---
+layout: post
+title:  "2048.1: A Variation on 2048"
+date:   2015-10-30 13:59:46 -0800
+categories: 2048 game artificial intelligence
+---
+I spent the last couple of days building a slight variation to the game [2048 (If you haven’t played it, you need to)](https://gabrielecirulli.github.io/2048/). I call it... **2048.1**! Very majestic and creative, I know. But wait, what does the “.1″ mean? Instead of having the starting tiles as 2 or 4, I have all of the starting tiles begin at 1. While this somewhat reduces the complexity of the game, it does make reaching the 2048 tile much harder.
+
+When I started building this thing, I spent a good amount of time playing the original to learn the mechanics of the game. How does the board populate? How do the tiles slide? How do the tiles merge? etc... But after I got around to understanding the rules of the game, I wanted to understand how to beat the game.
+
+Full disclosure, I’m seriously horrible at 2048. I don’t think I’ve ever gotten to the 1024 tile and only on a few occasions have I reached the 512 tile. Not impressive, I know. Fortunately, a bunch of people I know are super duper good! And, I learned a lot about the strategy needed to reach a high score. The key? Keep high value tiles on the corners. From that, I developed a simple heat map / gradient of where tiles should be located on any particular move. Here are some visuals:
+
+_(Just a brief explanation, the darker the blue, the better the tile position)_
+
+![image](https://40.media.tumblr.com/b8c5dc78a13e4f97062875fd844863a0/tumblr_inline_nx1nutX1CJ1qepten_540.png)![image](https://36.media.tumblr.com/714209bc4a5af3dcc2a6db774341c6ef/tumblr_inline_nx1nutFDPS1qepten_540.png)![image](https://41.media.tumblr.com/6d554c5be4b608b71760f2a8340f5d06/tumblr_inline_nx1nutyKGc1qepten_540.png)![image](https://40.media.tumblr.com/e8d2cdf088177cf6650a3215ac6c2cb4/tumblr_inline_nx1nuu71aM1qepten_540.png)
+
+With this in mind, I realized I could actually develop an AI capable of playing the game. My first thought was to use the Minimax algorithm because well.. it’s the only AI algorithm I know. Unfortunately, I sorta struggled to implement this in the beginning and stumbled upon these slides from [CS294 at The University of Washington](https://courses.cs.washington.edu/courses/cse473/11au/slides/cse473au11-adversarial-search.pdf) (thanks, btw) which paved the way for my AI. 
+
+1.  It described the Minimax algorithm in simple terms:
+
+1.  Base case: return the heuristic for the current board state
+
+2.  Maximizing player: return the maximum value for each child state
+3.  Minimizing player: return the minimum value for each child state2.  It showed me alpha-beta pruning which gave performance gains
+3.  It showed me an even better algorithm called Expectiminimax. This is very similar to the Minimax algorithm except it has an extra case -- instead of always having a minimizing player, it accounts for random cases, perfect for my random tiles that show up.
+
+So, with the Expectiminimax, I replaced my Minimizing Player condition and replaced it with the random condition, and BOOM. My AI beat 2048.1!!!
+![image](https://40.media.tumblr.com/216d002e4bec987277daf918772c8cfe/tumblr_inline_nx1olcNUu11qepten_540.png)
+
+Here’s a link to the GitHub repo: [https://github.com/waltertan12/2048.1](https://github.com/waltertan12/2048.1)
+
+- Walter
