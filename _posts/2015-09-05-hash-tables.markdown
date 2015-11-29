@@ -20,7 +20,7 @@ The inner workings of them are a bit more complicated but can be broken down int
 *   **Hash Function**: The hash function takes an item, does some crazy math (see hashing functions) to create a _near-unique_ (this is important) index for the item. Basically, this is creating the table contents of a book.
 *   **Table**: This is where the data is actually stored. In my book analogy, the data is stored on the page the hash function decided.
 *   **Collision Function**:
- Remember how I said a hash function creates a near-unique index? Hash functions are not perfect and sometimes gives two different pieces ofdata the same index. To remedy this, the hash map needs a method to differentiate the data called a collision function. This would be similar to giving Section numbers to a chapter of book (you know, like Chapter 3 Section 1 and Chapter 3 Section 2).
+ Remember how I said a hash function creates a near-unique index? Hash functions are not perfect and sometimes gives two different pieces of data the same index. To remedy this, the hash map needs a method to differentiate the data called a collision function. This would be similar to giving Section numbers to a chapter of book (you know, like Chapter 3 Section 1 and Chapter 3 Section 2).
 
 Well, that’s my attempt to explain Hash Maps! Hopefully it was simple enough to understand.
 
