@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "2048.1: A Variation on 2048"
-date:   2015-10-30 13:59:46 -0800
+date:   2015-10-30 13:59:00 -0800
 categories: 2048 game artificial intelligence
 ---
 I spent the last couple of days building a slight variation to the game [2048 (If you haven’t played it, you need to)](https://gabrielecirulli.github.io/2048/). I call it... **2048.1**! Very majestic and creative, I know. But wait, what does the “.1″ mean? Instead of having the starting tiles as 2 or 4, I have all of the starting tiles begin at 1. While this somewhat reduces the complexity of the game, it does make reaching the 2048 tile much harder.

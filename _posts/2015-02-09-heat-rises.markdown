@@ -10,12 +10,18 @@ I live in the south. It’s pretty warm, even in the winter. Check out the 5 day
 In fact, it’s so warm, one of my co-workers started talking about how he still hasn’t turned on his heat.
 
 > **Tall co-worker**: Dude, we haven’t turned on our heat this past weekend. It’s been really nice.
+>
 > **Bearded co-worker**: Tell me about it. I haven’t turned on my heat at all yet.
-> ** Tall co-worker**: Really? Don’t you live on the second floor?
-> ** Bearded co-worker**: Yeah.
-> ** Tall co-worker**: I lived on the third floor of that apartment complex and still needed heat.
-> ** Bearded co-worker**: Ahhh that’s weird.
-> ** Tall co-worker**: I assumed the heat would rise from the first and second floor which would make it a better option than the second floor.
+>
+> **Tall co-worker**: Really? Don’t you live on the second floor?
+>
+> **Bearded co-worker**: Yeah.
+>
+> **Tall co-worker**: I lived on the third floor of that apartment complex and still needed heat.
+>
+> **Bearded co-worker**: Ahhh that’s weird.
+>
+> **Tall co-worker**: I assumed the heat would rise from the first and second floor which would make it a better option than the second floor.
 
 That got me thinking. Does the insulation from the third floor keep the second floor warmer? Is it that measurable of a difference? So, I decided develop a model and see. Turns out it’s better to be on the second floor in the winter.
 
@@ -25,9 +31,7 @@ While I was making this, I realized the second floor would be the better option,
 
 Here's a link to the [Excel sheet](https://www.dropbox.com/s/5vzq36xkdr5q9r2/Apartment%20Heating.xlsx?dl=0).
 
-Technical stuff / assumptions after the jump.
-
-[[MORE]]
+#### Technical stuff / Assumptions
 
 I’ve got two models going: one for the second floor with no heat on, one for the top floor with no heat on. I’ll start off with my assumptions
 

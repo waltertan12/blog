@@ -26,15 +26,14 @@ I thought the concept was great and I wanted to try and expand it.
 So, here’s the new idea
 
 1.  Set a goal of how much exercise you want per week
-
-1.  We will recommend whatever the government says: 90 min a week of moderate intensity exercise2.  Turn this goal into a METS target
-
+2.  We will recommend whatever the government says: 90 min a week of moderate intensity exercise2.  Turn this goal into a METS target
 3.  Link FitBit or heart rate monitor to web app
 4.  Track weekly METS
 5.  If you reach the weekly target, you get access to movies the following week
-
 6.  Repeat steps 3-5
 
 A simple way to implement this with a friend would be to give your friend your Netflix account and password and make them track your workouts. If you reach your quota of working out, he tells you the password. If you don’t reach the quota, you don’t get the password :(
 
 I’m still thinking of ways to scale this upward. Does anyone have suggestions on how to do this? Also, do you think this would motivate you to work out more? Or would you just start to hate your “friend” and spend $10 on another Netflix account?
+
+- Walter
