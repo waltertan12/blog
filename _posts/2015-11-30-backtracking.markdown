@@ -109,15 +109,15 @@ var _getFactors = function (num, max, start, candidate, solutions) {
       solutions.push(candidate.slice());
       candidate.pop();
     }
-    return;
-  }
-  for (var i = start; i <= num; i++) {
-    if (num % i === 0 && i !== max) {
-      candidate.push(i);
-      _getFactors(num / i, max, i, candidate, solutions)
+  } else {
+    for (var i = start; i <= num; i++) {
+      if (num % i === 0 && i !== max) {
+        candidate.push(i);
+        _getFactors(num / i, max, i, candidate, solutions)
+      }
     }
+    candidate.pop();
   }
-  candidate.pop();
 };
 {% endhighlight %}
 
