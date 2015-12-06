@@ -21,10 +21,15 @@ Well, take a look at node `A`. Notice how there are no incoming arrows? That mea
 
 What applications can come from this? Scheduling, recipes, build instructions... A whole bunch!
 
+Imagine you have to take a bunch of classes for your major and each class has some prerequisite. How do you determine what class to take first? Try topological sort!
+
 
 {% highlight ruby %}
-Sunlight ---> Banana Tree -> Banana -> Poop
-                ^     ^                 |
-                |     |                 V
-              Water  Dirt <----------- worms
+Chemistry -----> Thermo -> PChem
+                  ^          ^
+                  |          |
+MultiVarCalc --> Physics  DiffEq
+    |                       ^
+    |                       |
+    -------------------------
 {% endhighlight %}
