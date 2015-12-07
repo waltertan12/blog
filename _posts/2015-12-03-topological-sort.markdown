@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Topological Sort"
-date:   2015-12-01 11:59:00 -0800
+date:   2015-12-06 10:27:00 -0800
 categories: algorithms
 markdown: redcarpet
 ---
@@ -32,4 +32,21 @@ MultiVarCalc --> Physics  DiffEq
     |                       ^
     |                       |
     -------------------------
+{% endhighlight %}
+
+What are the possible orders you would could take these classes?
+
+`Chemistry, MultiVarCalc, Physics, DiffEq, Thermo, PChem`
+
+`Chemistry, MultiVarCalc, Physics, Thermo, DiffEq, PChem`
+
+`MultiVarCalc, Chemistry, Physics, DiffEq, Thermo, PChem`
+
+`MultiVarCalc, Chemistry, Physics, Thermo, DiffEq, PChem`
+
+`More...`
+
+These are all topologically ordered 
+
+{% highlight ruby %}
 {% endhighlight %}
