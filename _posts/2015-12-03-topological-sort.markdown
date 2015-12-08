@@ -47,6 +47,3 @@ What are the possible orders you would could take these classes?
 `More...`
 
 These are all topologically ordered 
-
-{% highlight ruby %}
-{% endhighlight %}
