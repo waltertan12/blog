@@ -8,7 +8,7 @@ markdown: redcarpet
 So, Mike and I did an open source thing: 
 
 - [React-Plotly](https://www.npmjs.com/package/react-plotly)
-- [React-Plotly-Rails](http://ruby-gems.org/react-plotly-rails)
+- [React-Plotly-Rails](https://rubygems.org/gems/react-plotly-rails)
 
 It's a React component that makes Plotly graphs!
 
