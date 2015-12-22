@@ -45,5 +45,3 @@ What are the possible orders you would could take these classes?
 `MultiVarCalc, Chemistry, Physics, Thermo, DiffEq, PChem`
 
 `More...`
-
-These are all topologically ordered 
