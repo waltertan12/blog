@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Git Streak"
-date:   2015-12-06 18:03:00 -0700
+date:   2015-12-21 18:03:00 -0700
 categories: git
 markdown: redcarpet
 ---
