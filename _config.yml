@@ -17,3 +17,7 @@ github_username:  waltertan12
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+
+gems:
+  - jekyll-gist
