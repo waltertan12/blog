@@ -42,7 +42,7 @@ The HTML tags (div, head, body, etc) get turned into an [Element](https://develo
 
 The final result of this is a something that looks like this:
 
-<p data-height="281" data-theme-id="dark" data-slug-hash="zjwGdw" data-default-tab="result" data-user="waltertan12" data-embed-version="2" data-pen-title="zjwGdw" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/zjwGdw/">zjwGdw</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="300" data-theme-id="dark" data-slug-hash="zjwGdw" data-default-tab="result" data-user="waltertan12" data-embed-version="2" data-pen-title="zjwGdw" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/zjwGdw/">zjwGdw</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 If you want to play around with this concept more, you can open up the Inspector tool in your browser and explore existing web pages:
@@ -50,20 +50,24 @@ If you want to play around with this concept more, you can open up the Inspector
 - [Chrome](https://developer.chrome.com/devtools#dom-and-styles)
 
 ## Building the DOM with JavaScript
-So, we've discovered that the browser can render a static HTML file. Hooray!
+So, we've discovered that the browser can render a static HTML file.
 
-However, what happens if we want to dynmically add another Element to the page? We use JavaScript!
+Hooray!
 
-Fortunately, the DOM provides a nice API to dyamically build up the DOM.
+However, what happens if we want to dynmically add another Element to the page? What do we do then?
+
+We use JavaScript!
+
+Fortunately, the DOM provides a nice API to dyamically build up the DOM, so it's fairly straightforward to 
 
 Here are the three key methods that help us build the DOM:
 - [`Document#createElement`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
-  - This, unsurprisngly, creates Elements
+  - This, unsurprisingly, creates Elements
 - [`Document#createTextNode`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode)
   - This creates Text nodes
 - [`Node#appendChild`](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
   - This let's us add elements / text nodes as children
-    - tl;dr it let's us form associations with the nodes
+    - tl;dr it let's us form associations between nodes
   - This is super important when building a DOM tree
 
 So, if we wanted to create the example from above purely with JavaScript, we could do it like this:
@@ -95,10 +99,22 @@ body.appendChild(div);
 
 If you run that code in the console of your browser, you'll be able to see that we've successfully recreated the same DOM tree.
 
-<p data-height="281" data-theme-id="dark" data-slug-hash="VxbLGE" data-default-tab="result" data-user="waltertan12" data-embed-version="2" data-pen-title="Dynamic DOM Example" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/VxbLGE/">Dynamic DOM Example</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="300" data-theme-id="dark" data-slug-hash="VxbLGE" data-default-tab="result" data-user="waltertan12" data-embed-version="2" data-pen-title="Dynamic DOM Example" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/VxbLGE/">Dynamic DOM Example</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script src="https://static.codepen.io/assets/embed/ei.js"></script>
 
+And now, if we ever wanted to add an Element, say for a todo list, we could do it.
+
+Checkout the following example:
+
+<p data-height="300" data-theme-id="dark" data-slug-hash="PemPWP" data-default-tab="js,result" data-user="waltertan12" data-embed-version="2" data-pen-title="Dynamic DOM Example 2" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/PemPWP/">Dynamic DOM Example 2</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
 ## Take Aways
-We've (sort of) learned what the DOM is and how we are able to dynamically build the DOM using JavaScript. However, given the last example, building the DOM with JavaScript isn't exactly easy. The next post will introduce virtualization of the DOM and some better ways of dynamically building the DOM.
+We've (sort of) learned what the DOM is and how we are able to dynamically build the DOM using JavaScript. This can provide a better user experience than a hard-reload
+
+However, given the last example, building the DOM with JavaScript isn't exactly easy.
+
+The next post will introduce virtualization of the DOM and some better ways of dynamically building the DOM.
 
 - Walter
