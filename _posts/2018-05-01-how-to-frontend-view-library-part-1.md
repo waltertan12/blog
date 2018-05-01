@@ -99,7 +99,7 @@ body.appendChild(div);
 
 If you run that code in the console of your browser, you'll be able to see that we've successfully recreated the same DOM tree.
 
-<p data-height="300" data-theme-id="dark" data-slug-hash="VxbLGE" data-default-tab="result" data-user="waltertan12" data-embed-version="2" data-pen-title="Dynamic DOM Example" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/VxbLGE/">Dynamic DOM Example</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="300" data-theme-id="dark" data-slug-hash="VxbLGE" data-default-tab="js,result" data-user="waltertan12" data-embed-version="2" data-pen-title="Dynamic DOM Example" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/VxbLGE/">Dynamic DOM Example</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 And now, if we ever wanted to add an Element, say for a todo list, we could do it.
