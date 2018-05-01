@@ -58,19 +58,19 @@ However, what happens if we want to dynmically add another Element to the page? 
 
 We use JavaScript!
 
-Fortunately, the DOM provides a nice API to dyamically build up the DOM, so it's fairly straightforward to 
+Fortunately, the DOM provides a nice API to dyamically build up the DOM.
 
-Here are the three key methods that help us build the DOM:
+Here are the three key methods we're going to use:
 - [`Document#createElement`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
-  - This, unsurprisingly, creates Elements
+  - This creates Elements
 - [`Document#createTextNode`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode)
   - This creates Text nodes
 - [`Node#appendChild`](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild)
   - This let's us add elements / text nodes as children
-    - tl;dr it let's us form associations between nodes
   - This is super important when building a DOM tree
+  - tl;dr it let's us form associations between nodes
 
-So, if we wanted to create the example from above purely with JavaScript, we could do it like this:
+So, if we wanted to create the example from above purely with JavaScript, we could do it like this, however verbose:
 ```javascript
 // Create the Elements
 const body = document.createElement('body');
@@ -102,18 +102,17 @@ If you run that code in the console of your browser, you'll be able to see that 
 <p data-height="300" data-theme-id="dark" data-slug-hash="VxbLGE" data-default-tab="js,result" data-user="waltertan12" data-embed-version="2" data-pen-title="Dynamic DOM Example" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/VxbLGE/">Dynamic DOM Example</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-And now, if we ever wanted to add an Element, say for a todo list, we could do it.
+And now, if we ever wanted to add an Element, say for a todo list, we'd be able to do it.
 
 Checkout the following example:
 
 <p data-height="300" data-theme-id="dark" data-slug-hash="PemPWP" data-default-tab="js,result" data-user="waltertan12" data-embed-version="2" data-pen-title="Dynamic DOM Example 2" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/PemPWP/">Dynamic DOM Example 2</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-
 ## Take Aways
-We've (sort of) learned what the DOM is and how we are able to dynamically build the DOM using JavaScript. This can provide a better user experience than a hard-reload
+We've (sort of) learned what the DOM is and how we are able to dynamically build the DOM using JavaScript. This can provide a better user experience than a hard-reload another HTML document.
 
-However, given the last example, building the DOM with JavaScript isn't exactly easy.
+However, building the DOM with JavaScript is a little bit verbose.
 
 The next post will introduce virtualization of the DOM and some better ways of dynamically building the DOM.
 
