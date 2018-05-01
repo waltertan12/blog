@@ -95,6 +95,9 @@ body.appendChild(div);
 
 If you run that code in the console of your browser, you'll be able to see that we've successfully recreated the same DOM tree.
 
+<p data-height="281" data-theme-id="dark" data-slug-hash="VxbLGE" data-default-tab="result" data-user="waltertan12" data-embed-version="2" data-pen-title="Dynamic DOM Example" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/VxbLGE/">Dynamic DOM Example</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script src="https://static.codepen.io/assets/embed/ei.js"></script>
+
 ## Take Aways
 We've (sort of) learned what the DOM is and how we are able to dynamically build the DOM using JavaScript. However, given the last example, building the DOM with JavaScript isn't exactly easy. The next post will introduce virtualization of the DOM and some better ways of dynamically building the DOM.
 
