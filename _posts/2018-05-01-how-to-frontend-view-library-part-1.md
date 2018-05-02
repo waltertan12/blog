@@ -6,8 +6,6 @@ categories: javascript
 markdown: redcarpet
 ---
 
-# How to Modern Frontend View Library
-## Part 1: The DOM
 This series of posts focuses around how modern frontend view libraries (ahem... React) work.
 
 ## DOM Basics
