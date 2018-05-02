@@ -33,7 +33,7 @@
     }
 
     .page-link {
-        color: $text-color;
+        // color: $text-color;
         line-height: $base-line-height;
 
         // Gaps between nav items, but not on the last one
@@ -92,19 +92,7 @@
         }
     }
 }
-
-.page-link {
-    width: 75px;
-    text-align: center;
-    &:hover {
-        color: white;
-        background-color: lightblue;
-        padding: 15px 0;
-    }
-}
-
-
-
+ 
 /**
  * Site footer
  */
