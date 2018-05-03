@@ -129,27 +129,50 @@ Instead of needing to assign associations between the nodes, the factory approac
 A bit nicer to write, right?
 
 ## Factory Method or JSX?
-This factory approach is, in fact, how React and other libraries ([HyperScript](https://github.com/hyperhype/hyperscript), [Mithril](https://github.com/MithrilJS/mithril.js), etc) build up their virtual DOM.
+This factory approach is how React and other libraries ([HyperScript](https://github.com/hyperhype/hyperscript), [Mithril](https://github.com/MithrilJS/mithril.js), etc) build up their virtual DOM.
 
-In React, there's a factory method called `React#createElement` that serves the same purpose as our `createVNode` function. However, if you're building a React application, chances are you won't be directly be making calls to `React#createElement`. 
+In React, the factory method is called `React#createElement`. However, if you're building a React application, chances are you won't be directly be making calls to it. 
 
-That's because Facebook introduced an XML like syntax called [JSX](https://github.com/facebook/jsx).
-
-That said, JSX isn't valid JavaScript, so apps use a JSX parser, like [acorn-jsx](https://github.com/RReverser/acorn-jsx) or [Babylon](https://github.com/babel/babel/tree/master/packages/babylon), to transform the JSX into standard JavaScript.
+That's because Facebook introduced an XML like syntax called [JSX](https://github.com/facebook/jsx). Instead of needing to write `React#createElement`, you can write something that looks more similar to HTML.
 
 ```jsx
-// This JSX
-const App = (
+const TodoApp = (
   <div className="container">
-    <h1>Hello, world!</h1>
+    <h1>Todo App</h1>
+    <div className="form-group">
+      <input
+        id="input"
+        className="form-control"
+        type="text"
+        placeholder="Do laundry" 
+      />
+      <br />
+      <button id="button" className="btn btn-primary">Add todo</button>
+    </div>
+  
+    <h2>Things to do: </h2>
+    <ul id="list" className="list-group">
+    </ul>
   </div>
 );
+```
 
-// Gets transformed into this
-const App = React.createElement('div', { className: 'container' },
-  React.createElement('h1', null,
-    'Hello, world!'
-  )
+That said, JSX isn't valid JavaScript, so apps use a JSX parser, like [acorn-jsx](https://github.com/RReverser/acorn-jsx) or [Babylon](https://github.com/babel/babel/tree/master/packages/babylon), to help transform the JSX into `React#createElement` calls.
+
+```javascript
+// The JSX in the previous code block gets turned into this
+const TodoApp = React.createElement('div', { className: 'container' }, 
+    // We can add as many children as we want using the rest parameter
+    React.createElement('h1', null, 'Todo App'),
+    React.createElement('div', { className: 'form-group' },
+        React.createElement('input', { id: 'input', className: 'form-control', type: 'text', placeholder: 'Do laundry' }),
+        React.createElement('br', null),
+        React.createElement('button', { id: 'button', className: 'btn btn-primary' },
+            'Add todo'
+        )
+    ),
+    React.createElement('h2', null, 'Things to do:'),
+    React.createElement('ul', { id: 'list', className: 'list-group' })
 );
 ```
 
