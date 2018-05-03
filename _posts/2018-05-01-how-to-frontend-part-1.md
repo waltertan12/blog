@@ -3,7 +3,6 @@ layout: post
 title: "How to Frontend: Part 1"
 date: 2018-05-01 12:00:00 -0700
 categories: javascript
-markdown: redcarpet
 ---
 
 This series of posts focuses around how modern frontend view libraries (ahem... React) work.
