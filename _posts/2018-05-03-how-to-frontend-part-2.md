@@ -5,7 +5,7 @@ date: 2018-05-02 12:00:00 -0700
 categories: javascript
 ---
 
-This series of posts focuses around how modern frontend view libraries (ahem... React) work.
+This series of posts focuses around how modern frontend view libraries work.
 
 ## DOM Virtualization
 From the last [post](/blog/javascript/2018/05/01/how-to-frontend-part-1.html), we've seen that's a fairly cumbersome to build and manipulate the DOM with JavaScript. With this virtualization approach, we're get the ability to do the following:
@@ -157,7 +157,7 @@ const TodoApp = (
 );
 ```
 
-That said, JSX isn't valid JavaScript, so apps use a JSX parser, like [acorn-jsx](https://github.com/RReverser/acorn-jsx) or [Babylon](https://github.com/babel/babel/tree/master/packages/babylon), to help transform the JSX into `React#createElement` calls.
+That said, JSX isn't valid JavaScript, so apps need to transform the JSX into `React#createElement` calls using JSX parsers, like [acorn-jsx](https://github.com/RReverser/acorn-jsx) or [Babylon](https://github.com/babel/babel/tree/master/packages/babylon).
 
 ```javascript
 // The JSX in the previous code block gets turned into this
@@ -179,95 +179,91 @@ const TodoApp = React.createElement('div', { className: 'container' },
 ## Rendering the Virtual DOM
 Now that we've found a good way to build up the virtual DOM, it's time to render it to the real DOM!
 
+Take a look at the code snippet below to get an idea of how a virtual tree gets mapped to a DOM tree:
 ```javascript
 /**
- * Renders a virtual node and mounts it to a real node so that it shows up in the browser
- * 
- * @param  {Node}   node
- * @param  {Object} vNode
- */
-const mount = (root, vNode) => {
-  const node = render(vNode);
-
-  // The app has already mounted once, so replace the old app with the new app
-  if (root.childNodes.length) {
-    root.replaceChild(node, root.childNodes[0]);
-
-  // First render
-  } else {
-      root.appendChild(node);
-  }
-
-  return node;
-};
-
-/**
- * Transform a virtual node into a DOM node
+ * Creates a DOM node from a virtual node
  *
  * @param  {Object|string} vNode A virtual node or virtual text node
  * @return {Node}          node  An actual DOM node
  */
 const render = vNode => {
-    // Create a text node
+    // Create a text node if we're given a string
     if (typeof vNode === 'string') {
         return document.createTextNode(vNode);
     }
 
-    // Create an element
+    // Create an element if we're given a vNode object
     const node = document.createElement(vNode.tagName);
 
-    // Map the virtual props to the actual node
+    /*
+     * Apply the virtual props to the actual node
+     * 
+     * Check out the CodePen for the rest of the code
+     */
     applyProps(node, vNode.props);
 
     vNode.children
-        // Render all of the virtual child nodes
+        // Recursively render the virtual children
         .map(render)
-        // And attach them to the current node
-        .forEach(node.appendChild.bind(node));
-
-    return node;
-};
-
-/**
- * Apply the virtual props to the actual DOM node
- * 
- * Doesn't handle all cases For example, this will not apply an onChange function.
- *
- * @param {Element} node
- * @param {Object}
- */
-const applyProps = (node, props) => {
-    // Iterate through all the props
-    Object.keys(props)
-        .forEach(propName => {
-            const prop = props[propName];
-
-            /*
-             * This is if the prop is another object containing more properties
-             *
-             * Example:
-             *   Could have a style prop: { margin: 'auto', backgroundColor: '#fff' }
-             *   <someElement style="margin: auto, background-color: #fff" />
-             */
-            if (typeof prop === 'object') {
-                Object.keys(prop)
-                    .forEach(attribute => {
-                        node[propName][attribute] = prop[attribute];
-                    });
-
-            /*
-             *The prop is if the prop is a primitive
-             *
-             * Example:
-             *   {id: 3}
-             *   <someElement id="3" />
-             */
-            } else if (typeof prop === 'string' || typeof prop === 'number') {
-                node[propName] = prop;
-            }
+        // And attach them to the DOM node
+        .forEach(childNode => {
+            node.appendChild(childNode)
         });
+
+    // Return the DOM node
+    return node;
 };
 ```
 
-<p data-height="450" data-theme-id="0" data-slug-hash="qYjazN" data-default-tab="js,result" data-user="waltertan12" data-embed-version="2" data-pen-title="Virtual DOM Example 2" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/qYjazN/">Virtual DOM Example 2</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+And now, let's make a small change to our view and make it a pure function of data:
+```javascript
+const TodoApp = (data) => createVNode('div', { className: 'container' }, 
+    createVNode('h1', {}, 'Todo App'),
+    createVNode('div', { className: 'form-group' },
+        createVNode('input', { id: 'input', className: 'form-control', type: 'text', placeholder: 'Do laundry', value: data.input, onKeyUp: onInputKeyUp }),
+        createVNode('br', {}),
+        createVNode('button', { id: 'button', className: 'btn btn-primary', onClick: onButtonClick }, 'Add Todo')
+    ),
+    createVNode('h2', {}, 'Things to do:'),
+    createVNode('ul', { id: 'list', className: 'list-group' },
+        // Read from the data object to build the view
+        ...data.todos.map(todoString => createVNode('li', { className: 'list-group-item' }, todoString))
+    )
+);
+```
+
+What we've done here is very simple but quite powerful.
+
+By making the view a pure function of data, we've made the application very easy to reason about. Our UI's only concern is with presenting data: it doesn't make any decisions about how to update the data; it just accepts data and returns a view.
+
+> # UI = F(data)
+
+Take a look at the running CodePen example:
+
+<p data-height="450" data-theme-id="0" data-slug-hash="qYjazN" data-default-tab="js,result" data-user="waltertan12" data-embed-version="2" data-pen-title="Virtual DOM Example 3" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/qYjazN/">Virtual DOM Example 3</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+# Shortcomings
+That example is kind of awesome, right?
+
+However, if you've tried using it at all, you probably noticed some pretty obvious issues.
+
+1. The input field loses focus _every_ time you type into it
+2. The application gets slower and slower with every added item
+
+These problems are both associated with the fact that we are re-rendering the entire DOM tree on every single change.
+
+**Type into the input field?**
+
+The app re-renders and the input field with focus on is replaced with a new input field without focus.
+
+**Have 300 items in your todo list?**
+
+The browser has to recalculate all the positions of the elements and repaint them onto the screen.
+
+![Layout](https://developer.mozilla.org/files/464/Gecko_Overview_9.png)
+
+Find out how we overcome this problem in the next post.
+
+- Walter

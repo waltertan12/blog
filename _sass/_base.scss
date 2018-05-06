@@ -36,6 +36,9 @@ ul, ol, dl, figure,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
 }
+pre > code {
+    font-family: Consolas;
+}
 
 
 

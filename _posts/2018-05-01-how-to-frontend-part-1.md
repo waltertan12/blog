@@ -5,7 +5,7 @@ date: 2018-05-01 12:00:00 -0700
 categories: javascript
 ---
 
-This series of posts focuses around how modern frontend view libraries (ahem... React) work.
+This series of posts focuses around how modern frontend view libraries work.
 
 ## DOM Basics
 To get an understanding of what's going on with a library like React, you'll need to be familiar with the DOM.
