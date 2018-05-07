@@ -62,7 +62,7 @@ Option 1 works but it doesn't provide an ideal user experience since we need to 
 That said, let's explore option 2.
 
 ### Building the DOM with JavaScript
-Fortunately, the DOM provides a nice API to dyamically build up the DOM.
+Fortunately, the DOM provides a nice API to dynamically build up the DOM.
 
 Here are the three key methods we're going to use:
 - [`Document#createElement`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)
