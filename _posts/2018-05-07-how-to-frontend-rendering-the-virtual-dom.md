@@ -32,7 +32,7 @@ Here's the general strategy of our render function:
 3. Iterate through the virtual nodes children and:
     - Render those children
     - Append the child to the root node
-5. Return the root node
+4. Return the root node
 
 This is basically a modified [depth-first pre-order tree traversal](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/).
 
