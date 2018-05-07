@@ -341,8 +341,6 @@ What that means is our UI's only concern is with presenting data. It doesn't mak
 
 Looking at our TodoApp, we achieve this separation by accepting an `onClick` props on the `<button />` and an `onKeyUp` on the `<input />`. The UI doesn't care what those props are, all it does is execute.
 
-Play around with the running CodePen example to see:
-
 <p data-height="450" data-theme-id="0" data-slug-hash="qYjazN" data-default-tab="js,result" data-user="waltertan12" data-embed-version="2" data-pen-title="Virtual DOM Example 3" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/qYjazN/">Virtual DOM Example 3</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
