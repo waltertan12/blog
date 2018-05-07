@@ -10,7 +10,9 @@ This series of posts focuses around how modern frontend view libraries work.
 ## DOM Virtualization
 From the last [post](/blog/javascript/2018/05/01/how-to-frontend-part-1.html), we've seen that's a fairly cumbersome to build and manipulate the DOM with JavaScript. With this virtualization approach, we're get the ability to do the following:
   - Declaratively build the virtual DOM
-  - Render applications functionally
+  - Build up the UI with all the niceties of JavaScript
+    - You have all of JavaScript at your disposal, not just templating markup
+  - Render applications functionally (see the next post)
 
 Let's start by defining what makes a DOM node a DOM node.
 
@@ -128,6 +130,9 @@ Instead of needing to assign associations between the nodes, the factory approac
 
 A bit nicer to write, right?
 
+<p data-height="450" data-theme-id="dark" data-slug-hash="Zoypem" data-default-tab="js,result" data-user="waltertan12" data-embed-version="2" data-pen-title="Virtual DOM Example 1" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/Zoypem/">Virtual DOM Example 1</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
 ## Factory Method or JSX?
 This factory approach is how React and other libraries ([HyperScript](https://github.com/hyperhype/hyperscript), [Mithril](https://github.com/MithrilJS/mithril.js), etc) build up their virtual DOM.
 
@@ -176,94 +181,10 @@ const TodoApp = React.createElement('div', { className: 'container' },
 );
 ```
 
-## Rendering the Virtual DOM
-Now that we've found a good way to build up the virtual DOM, it's time to render it to the real DOM!
+## Take Aways
+- Factory methods help us write the virutal DOM declaratively
+- JSX is syntatic sugar over virtual node factories
 
-Take a look at the code snippet below to get an idea of how a virtual tree gets mapped to a DOM tree:
-```javascript
-/**
- * Creates a DOM node from a virtual node
- *
- * @param  {Object|string} vNode A virtual node or virtual text node
- * @return {Node}          node  An actual DOM node
- */
-const render = vNode => {
-    // Create a text node if we're given a string
-    if (typeof vNode === 'string') {
-        return document.createTextNode(vNode);
-    }
+The next step is to take this virtual tree and actually render it to the browser.
 
-    // Create an element if we're given a vNode object
-    const node = document.createElement(vNode.tagName);
-
-    /*
-     * Apply the virtual props to the actual node
-     * 
-     * Check out the CodePen for the rest of the code
-     */
-    applyProps(node, vNode.props);
-
-    vNode.children
-        // Recursively render the virtual children
-        .map(render)
-        // And attach them to the DOM node
-        .forEach(childNode => {
-            node.appendChild(childNode)
-        });
-
-    // Return the DOM node
-    return node;
-};
-```
-
-And now, let's make a small change to our view and make it a pure function of data:
-```javascript
-const TodoApp = (data) => createVNode('div', { className: 'container' }, 
-    createVNode('h1', {}, 'Todo App'),
-    createVNode('div', { className: 'form-group' },
-        createVNode('input', { id: 'input', className: 'form-control', type: 'text', placeholder: 'Do laundry', value: data.input, onKeyUp: onInputKeyUp }),
-        createVNode('br', {}),
-        createVNode('button', { id: 'button', className: 'btn btn-primary', onClick: onButtonClick }, 'Add Todo')
-    ),
-    createVNode('h2', {}, 'Things to do:'),
-    createVNode('ul', { id: 'list', className: 'list-group' },
-        // Read from the data object to build the view
-        ...data.todos.map(todoString => createVNode('li', { className: 'list-group-item' }, todoString))
-    )
-);
-```
-
-What we've done here is very simple but quite powerful.
-
-By making the view a pure function of data, we've made the application very easy to reason about. Our UI's only concern is with presenting data: it doesn't make any decisions about how to update the data; it just accepts data and returns a view.
-
-> # UI = F(data)
-
-Take a look at the running CodePen example:
-
-<p data-height="450" data-theme-id="0" data-slug-hash="qYjazN" data-default-tab="js,result" data-user="waltertan12" data-embed-version="2" data-pen-title="Virtual DOM Example 3" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/qYjazN/">Virtual DOM Example 3</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-
-# Shortcomings
-That example is kind of awesome, right?
-
-However, if you've tried using it at all, you probably noticed some pretty obvious issues.
-
-1. The input field loses focus _every_ time you type into it
-2. The application gets slower and slower with every added item
-
-These problems are both associated with the fact that we are re-rendering the entire DOM tree on every single change.
-
-**Type into the input field?**
-
-The app re-renders and the input field with focus on is replaced with a new input field without focus.
-
-**Have 300 items in your todo list?**
-
-The browser has to recalculate all the positions of the elements and repaint them onto the screen.
-
-![Layout](https://developer.mozilla.org/files/464/Gecko_Overview_9.png)
-
-Find out how we overcome this problem in the next post.
-
-- Walter
+Walter
