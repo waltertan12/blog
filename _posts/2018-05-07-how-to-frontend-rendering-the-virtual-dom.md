@@ -93,7 +93,7 @@ There are a few different cases of props that we need to consider:
   ```
 - Props as functions
   ```javascript
-  button.addEventListener('click', () => console.log('clicked!');
+  button.addEventListener('click', () => console.log('clicked!'));
   ```
 
 Here's how we handle those cases:
