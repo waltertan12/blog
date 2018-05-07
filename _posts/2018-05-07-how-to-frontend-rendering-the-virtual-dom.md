@@ -129,7 +129,7 @@ const applyProps = (node, props) => {
              *   Could have a style prop: { margin: 'auto', backgroundColor: '#fff' }
              *   <someElement style="margin: auto, background-color: #fff" />
              */
-            else if (typeof prop === 'object') {
+            } else if (typeof prop === 'object') {
                 Object.keys(prop)
                     .forEach(attributeName => {
                         // Assign the prop to the node with the extended namespace [propName][attributeName]
