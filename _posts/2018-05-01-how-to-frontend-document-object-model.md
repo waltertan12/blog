@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to Frontend: Part 1"
+title: "How to Frontend: Document Object Model (DOM)"
 date: 2018-05-01 12:00:00 -0700
 categories: javascript
 ---

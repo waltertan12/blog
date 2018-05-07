@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to Frontend: Part 2"
+title: "How to Frontend: The Virtual DOM"
 date: 2018-05-02 12:00:00 -0700
 categories: javascript
 ---
