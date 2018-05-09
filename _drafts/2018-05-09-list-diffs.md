@@ -7,6 +7,8 @@ categories: algorithms
 
 Diffs are an extremely important facet of programming. Tools like Git and even Google's "Did you mean X" feature, are built using diffs and [edit distance](http://blog.mikemccandless.com/2011/03/lucenes-fuzzyquery-is-100-times-faster.html).
 
+![Did you mean](/blog/images/did-you-mean.png)
+
 ## What's a Diff
 A diff is exactly what it sounds like: it's the difference between A and B.
 
@@ -59,7 +61,6 @@ We get the following edit distances:
 | dope  | doge   | 1             |
 |-------|--------|---------------|
 
-<br />
 However, if update the replace operation to cost 2, since it is kind of like deleting and then inserting, we get these edit distances:
 
 |-------|--------|---------------|

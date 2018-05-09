@@ -33,6 +33,23 @@ $on-laptop:        800px;
   -moz-osx-font-smoothing: grayscale;
 }
 
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: $spacing-unit;
+
+  th,
+  td {
+    border: 1px solid $grey-color-dark;
+    padding: 10px;
+    text-align: center;
+  }
+  th {
+    background-color: $grey-color-light;
+  }
+}
+
+
 // Use media queries like this:
 // @include media-query($on-palm) {
 //     .wrapper {
