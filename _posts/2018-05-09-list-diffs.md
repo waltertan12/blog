@@ -152,7 +152,7 @@ const editDistance = (strA, strB) => {
 };
 ```
 
-This algorithm has an O(3 ^ max(n, m)) run time since we spawn 3 new calls if a character does not match.
+This algorithm has an $$O\left (3^{max(n, m))}\right )$$ time complexity since we spawn 3 new calls if a character does not match.
 
 Take a look at the call tree we generate:
 
@@ -217,9 +217,9 @@ const editDistance = (strA, strB) => {
       // Otherwise, we have to perform an insert, delete or replace
       } else {
         matrix[i][j] = 1 + Math.min(
-          matrix[i][j - 1],   // Insert
-          matrix[i - 1][j],   // Delete
-          matrix[i -1][j - 1] // Replace
+          matrix[i][j - 1],    // Insert
+          matrix[i - 1][j],    // Delete
+          matrix[i - 1][j - 1] // Replace
         );
       }
     }
@@ -228,5 +228,80 @@ const editDistance = (strA, strB) => {
   return matrix[lenA][lenB];
 };
 ```
+
+## Heuristics
+With dynamic programming, we are able to reduce the time complexity of the edit distance algorithm from $$O\left (  3^{\max(m, n))}\right )$$ to $$O\left ( m * n \right )$$.
+
+This is a great improvement! However, in reality, quadratic time complexities are still not ideal.
+
+To improve this algorithm, we have to use heuristics.
+
+In the case of lists, we can use a `key` heuristic in which every single item has a unique key associated with it. While this approach limits us to having lists of unique items, it improves the time complexity to $$ O\left(m + n \right) $$
+
+```javascript
+const dodge = [
+  { key: 'd-1', value: 'd' },
+  { key: 'o-1', value: 'o' },
+  { key: 'd-2', value: 'd' },
+  { key: 'g-1', value: 'g' },
+  { key: 'e-1', value: 'e' },
+];
+const doggo = [
+  { key: 'd-1', value: 'd' },
+  { key: 'o-1', value: 'o' },
+  { key: 'g-1', value: 'g' },
+  { key: 'g-2', value: 'g' },
+  { key: 'o-1', value: 'o' },
+];
+
+const buildList = str => {
+	const len = str.length;
+	const list = [];
+	const keyMap = {};
+
+	for (let i = 0; i < len; i += 1) {
+		const char = str[i];
+		if (!keyMap[char]) {
+			keyMap[char] = 1;
+		}
+
+		list.push({ key: `${char}-${keyMap[char]++}`, value: char });
+	}
+	
+	return list;
+};
+
+const processKeys = list => {
+  return list.reduce((keyMap, node) => {
+    keyMap[node.key] = node;
+
+    return keyMap;
+  }, {});
+};
+
+const editDistance = (listA, listB) => {
+  const keysA = processKeys(listA);
+  const keysB = processKeys(listB);
+
+  let  remove = 0;
+  let  insert = 0;
+
+  listA.forEach(node => {
+    if (!keysB.hasOwnProperty(node.key)) {
+      remove += 1;
+    }
+  });
+
+  listB.forEach(node => {
+    if (!keysA.hasOwnProperty(node.key)) {
+      insert += 1;
+    }
+  });
+
+  return remove + insert;
+};
+```
+
+Another notable limitation is the absence of the replace operation.
 
 Walter
