@@ -175,15 +175,13 @@ Instead of calling everything from top to bottom, we are also able to calculate 
 
 Take a look at the matrix we get comparing `dodge` and `doggo`:
 
-|   |   | d | o | d | g | e |
-|   |   | 0 | 1 | 2 | 3 | 4 |
-|---|---|---|---|---|---|---|
-|   | 0 | 1 | 2 | 3 | 4 | 5 |
-| d | 1 | 0 | 1 | 2 | 3 | 4 |
-| o | 2 | 1 | 0 | 1 | 2 | 3 |
-| g | 3 | 2 | 1 | 1 | 2 | 3 |
-| g | 4 | 3 | 2 | 2 | 1 | 2 |
-| o | 5 | 4 | 3 | 3 | 2 | 2 |
+|       | **''**| **d** | **o** | **d** | **g** | **e** |
+| **''**| **0** | 1     | 2     | 3     | 4     | 5     |
+| **d** | 1     | **0** | 1     | 2     | 3     | 4     |
+| **o** | 2     | 1     | **0** | 1     | 2     | 3     |
+| **g** | 3     | 2     | 1     | **1** | 2     | 3     |
+| **g** | 4     | 3     | 2     | 2     | **1** | 2     |
+| **o** | 5     | 4     | 3     | 3     | 2     | **2** |
 
 Each cell in this matrix reprsents the number of changes that must be made to get from one string to another. For example, matrix[3][3] has the value `0`. That's because it compares the string `do` to `do` which doesn't require any changes.
 
