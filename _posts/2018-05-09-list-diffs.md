@@ -254,23 +254,36 @@ const doggo = [
   { key: 'o-1', value: 'o' },
 ];
 
+/**
+ * Transforms a string into a list of objects
+ * Each object has the following structure:
+ * {
+ *   key: string,
+ *   value: string,
+ * }
+ *
+ * @param  {string}   str
+ * @return {Object[]} list
+ */
 const buildList = str => {
-	const len = str.length;
-	const list = [];
-	const keyMap = {};
+  const keyMap = {};
 
-	for (let i = 0; i < len; i += 1) {
-		const char = str[i];
-		if (!keyMap[char]) {
-			keyMap[char] = 1;
-		}
+  return str.split('')
+    .map(char => {
+      if (!keyMap[char]) {
+        keyMap[char] = 1;
+      }
 
-		list.push({ key: `${char}-${keyMap[char]++}`, value: char });
-	}
-	
-	return list;
+      return { key: `${char}-${keyMap[char]++}`, value: char };
+    });
 };
 
+/**
+ * Takes a list and returns a hash map where each key references a node in the list
+ *
+ * @param  {Object[]} list
+ * @return {Object} 
+ */
 const processKeys = list => {
   return list.reduce((keyMap, node) => {
     keyMap[node.key] = node;
@@ -283,25 +296,30 @@ const editDistance = (listA, listB) => {
   const keysA = processKeys(listA);
   const keysB = processKeys(listB);
 
-  let  remove = 0;
-  let  insert = 0;
-
-  listA.forEach(node => {
+  // If a key exists in listA but not listB, it needs to be deleted
+  const numDeletes = listA.reduce((deletes, node) => {
     if (!keysB.hasOwnProperty(node.key)) {
-      remove += 1;
+      deletes += 1;
     }
-  });
 
-  listB.forEach(node => {
+    return deletes;
+  }, 0);
+
+  // If a key exists in listB but not listA, it needs to be inserted
+  const numInserts = listB.reduce((inserts, node) => {
     if (!keysA.hasOwnProperty(node.key)) {
-      insert += 1;
+      inserts += 1;
     }
-  });
 
-  return remove + insert;
+    return inserts;
+  }, 0);
+
+  return numDeletes + numInserts;
 };
 ```
 
-Another notable limitation is the absence of the replace operation.
+Another noticable downside of this heuristic is the absence of a replace operation. So, when we actually run the edit distance on `dodge` and `doggo`, we get a value of `3` instead of `2`.
+
+It's certainly a less "accurate" result, but in the world of engineering, sometimes approximations are good enough.
 
 Walter
