@@ -251,7 +251,7 @@ const doggo = [
   { key: 'o-1', value: 'o' },
   { key: 'g-1', value: 'g' },
   { key: 'g-2', value: 'g' },
-  { key: 'o-1', value: 'o' },
+  { key: 'o-2', value: 'o' },
 ];
 
 /**
@@ -318,7 +318,7 @@ const editDistance = (listA, listB) => {
 };
 ```
 
-Another noticable downside of this heuristic is the absence of a replace operation. So, when we actually run the edit distance on `dodge` and `doggo`, we get a value of `3` instead of `2`.
+Another noticable downside of this heuristic is the absence of a replace operation. So, when we actually run the edit distance on `dodge` and `doggo`, we get a value of `4` instead of `2`.
 
 It's certainly a less "accurate" result, but in the world of engineering, sometimes approximations are good enough.
 
