@@ -119,7 +119,7 @@ const editDistance = (strA, strB) => {
    * If strA is empty, we'd have to insert all of strB, so the cost is the length of strB
    */
   if (lenA === 0) {
-  	return lenB;
+    return lenB;
   }
 
   /*
@@ -127,12 +127,12 @@ const editDistance = (strA, strB) => {
    * If strB is empty, we'd have to delete all of strA, so the cost is the length of strA
    */
   if (lenB === 0) {
-  	return lenA;
+    return lenA;
   }
 
   // If the last character of strA and strB are the same, move on to rest of the string
   if (strA[lenA - 1] === strB[lenB - 1]) {
-  	return editDistanceTwo(strA.substr(0, lenA - 1), strB.substr(0, lenB - 1));
+    return editDistanceTwo(strA.substr(0, lenA - 1), strB.substr(0, lenB - 1));
   }
 
   /*
@@ -197,7 +197,7 @@ const editDistance = (strA, strB, cache = {}) => {
 
   // If the last character of strA and strB are the same, move on to rest of the string
   if (strA[lenA - 1] === strB[lenB - 1]) {
-  	cache[cacheKey] = editDistanceTwo(strA.substr(0, lenA - 1), strB.substr(0, lenB - 1), cache);
+    cache[cacheKey] = editDistanceTwo(strA.substr(0, lenA - 1), strB.substr(0, lenB - 1), cache);
 
     return cache[cacheKey];
   }
@@ -224,7 +224,7 @@ And check out the new call tree we generate:
 <p data-height="450" data-theme-id="dark" data-slug-hash="pVObvj" data-default-tab="result" data-user="waltertan12" data-embed-version="2" data-pen-title="EditDistance 2" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/pVObvj/">EditDistance 2</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-For education purposes, here's the cache that gets generated comparing `dodge` and `doggo`:
+For educational purposes, here's the cache that gets generated comparing `dodge` and `doggo`:
 
 ```json
 {
@@ -265,10 +265,10 @@ For education purposes, here's the cache that gets generated comparing `dodge` a
 }
 ```
 
-This cache that we've created looks very similar to something that we'll build using the bottom up approach.
+The cache that we've created looks very similar to something that we'll build using the bottom up approach.
 
 ### Bottom up
-Instead of calling everything from top to bottom, we are also able to calculate all of the distances bottom-up by using a distance matrix.
+Instead of calling everything from top to bottom and storing the results, we are actually able to calculate all of the distances bottom-up by using a distance matrix.
 
 Take a look at the matrix we get comparing `dodge` and `doggo`:
 
@@ -279,6 +279,8 @@ Take a look at the matrix we get comparing `dodge` and `doggo`:
 | **g** | 3     | 2     | 1     | **1** | 2     | 3     |
 | **g** | 4     | 3     | 2     | 2     | **1** | 2     |
 | **o** | 5     | 4     | 3     | 3     | 2     | **2** |
+
+*Side note: Notice how each column corresponds to a group in the top-down cache*
 
 Each cell in this matrix reprsents the number of changes that must be made to get from one string to another. For example, matrix[3][3] has the value `0`. That's because it compares the string `do` to `do` which doesn't require any changes.
 
