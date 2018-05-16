@@ -79,41 +79,40 @@ However, if update the replace operation to cost 2, since it is kind of like del
 |-------|--------|---------------|
 
 ## Calculating Edit Distance
-To calculate edit distance between two strings (strA, strB), we want to process every character of both strings starting from the right side or the left side.
+To calculate edit distance between two strings, `strA` and `strB`, we want to process every character of both strings starting from the right side or the left side.
 
 In the case of starting from the right side, we'd do this:
 
-- Compare the last character of strA and strB
-- If the characters are the same, compare the rest of the strA and strB except the last characters
+- Compare the last character of `strA` and `strB`
+- If the characters are the same, compare the rest of the `strA` and `strB` except the last characters
   - tl;dr call
   ```javascript
-    editDistance(strA.substr(0, strA.length - 1, strB.substr(0, strB.length - 1))
+    editDistance(strA.substr(0, lenA - 1), strB.substr(0, lenB - 1))
   ```
 
 - If the characters are different, calculate the edit distance for inserting, deleting and replacing. Then, take the minimum cost.
-    - Calculate edit distance for inserting
+    - Calculate edit distance for inserting the last character of `strB` to the end of `strA`
     ```javascript
-  costOfInsert = editDistance(strA, strB.substr(0, strB.length - 1))
+  costOfInsert = editDistance(strA, strB.substr(0, lenB - 1))
     ```
-    - Calculate edit distance for deleting
+    - Calculate edit distance for deleting the last character of `strA`
     ```javascript
-  costOfDelete = editDistance(strA.substr(0, strA.length - 1), strB)`
+  costOfDelete = editDistance(strA.substr(0, lenA - 1), strB)`
     ```
-    - Calculate edit distance for replacing
+    - Calculate edit distance for replacing the last character of `strA` with the last character of `strB`
     ```javascript
-  costOfReplace = editDistance(strA.substr(0, strA.length - 1), strB.substr(0, strB.length - 1))
+  costOfReplace = editDistance(strA.substr(0, lenA - 1), strB.substr(0, lenB - 1))
     ```
     - Take the minimum of the edit distances
     ```javascript
   cost = min(costOfInsert, costOfDelete, costOfReplace)
     ```
 
-Here's a code snippet with some of the details:
+Here's a code snippet with the full implementation:
 ```javascript
 const editDistance = (strA, strB) => {
   const lenA = strA.length;
   const lenB = strB.length;
-
 
   /*
    * Base case 0:
@@ -133,7 +132,7 @@ const editDistance = (strA, strB) => {
 
   // If the last character of strA and strB are the same, move on to rest of the string
   if (strA[lenA - 1] === strB[lenB - 1]) {
-  	return editDistanceTwo(strA.substring(0, lenA - 1), strB.substring(0, lenB - 1));
+  	return editDistanceTwo(strA.substr(0, lenA - 1), strB.substr(0, lenB - 1));
   }
 
   /*
@@ -165,10 +164,108 @@ Visually, it's pretty obvious there is a lot of repeated work. This means it's a
 ### Top down
 Since we see a lot of repeated work, we can take the simple approach of caching the results of two unique inputs. Basically, if we've already solved a subtree, we don't need to recalculate it -- we just need to grab the stored value!
 
+Take a look at the implementation:
+```javascript
+const editDistance = (strA, strB, cache = {}) => {
+  const cacheKey = `A:${strA}-B:${strB}`;
+  if (cache.hasOwnProperty(cacheKey)) {
+    return cache[cacheKey];
+  }
 
-Check out the new call tree we generate:
+  const lenA = strA.length;
+  const lenB = strB.length;
+
+  /*
+   * Base case 0:
+   * If strA is empty, we'd have to insert all of strB, so the cost is the length of strB
+   */
+  if (lenA === 0) {
+    cache[cacheKey] = lenB;
+
+    return cache[cacheKey];
+  }
+
+  /*
+   * Base case 1:
+   * If strB is empty, we'd have to delete all of strA, so the cost is the length of strA
+   */
+  if (lenB === 0) {
+    cache[cacheKey] = lenA;
+
+    return cache[cacheKey];
+  }
+
+  // If the last character of strA and strB are the same, move on to rest of the string
+  if (strA[lenA - 1] === strB[lenB - 1]) {
+  	cache[cacheKey] = editDistanceTwo(strA.substr(0, lenA - 1), strB.substr(0, lenB - 1), cache);
+
+    return cache[cacheKey];
+  }
+
+  /*
+   * Otherwise, we have to perform an insert, delete or replace
+   *
+   * Recursively calculate the edit distance in those scenarios
+   */
+  cache[cacheKey] = 1 + Math.min(
+    // Delete the last character of strA
+    editDistanceTwo(strA.substr(0, lenA - 1), strB),
+    // Insert the last character of strB into strA
+    editDistanceTwo(strA, strB.substr(0, lenB - 1)),
+    // Replace the last character of strA with strB
+    editDistanceTwo(strA.substr(0, lenA - 1), strB.substr(0, lenB - 1))
+  );
+
+  return cache[cacheKey];
+};
+```
+
+And check out the new call tree we generate:
 <p data-height="450" data-theme-id="dark" data-slug-hash="pVObvj" data-default-tab="result" data-user="waltertan12" data-embed-version="2" data-pen-title="EditDistance 2" class="codepen">See the Pen <a href="https://codepen.io/waltertan12/pen/pVObvj/">EditDistance 2</a> by Walter Tan (<a href="https://codepen.io/waltertan12">@waltertan12</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+For education purposes, here's the cache that gets generated comparing `dodge` and `doggo`:
+
+```json
+{
+    "A:-B:": 0,
+    "A:-B:d": 1,
+    "A:-B:do": 2,
+    "A:-B:dog": 3,
+    "A:-B:dogg": 4,
+    "A:d-B:": 1,
+    "A:d-B:d": 0,
+    "A:d-B:do": 1,
+    "A:d-B:dog": 2,
+    "A:d-B:dogg": 3,
+    "A:do-B:": 2,
+    "A:do-B:d": 1,
+    "A:do-B:do": 0,
+    "A:do-B:dog": 1,
+    "A:do-B:dogg": 2,
+    "A:do-B:doggo": 3,
+    "A:dod-B:": 3,
+    "A:dod-B:d": 2,
+    "A:dod-B:do": 1,
+    "A:dod-B:dog": 1,
+    "A:dod-B:dogg": 2,
+    "A:dod-B:doggo": 3,
+    "A:dodg-B:": 4,
+    "A:dodg-B:d": 3,
+    "A:dodg-B:do": 2,
+    "A:dodg-B:dog": 1,
+    "A:dodg-B:dogg": 1,
+    "A:dodg-B:doggo": 2,
+    "A:dodge-B:": 5,
+    "A:dodge-B:d": 4,
+    "A:dodge-B:do": 3,
+    "A:dodge-B:dog": 2,
+    "A:dodge-B:dogg": 2,
+    "A:dodge-B:doggo": 2
+}
+```
+
+This cache that we've created looks very similar to something that we'll build using the bottom up approach.
 
 ### Bottom up
 Instead of calling everything from top to bottom, we are also able to calculate all of the distances bottom-up by using a distance matrix.
@@ -189,7 +286,7 @@ However, matrix[4][4] has the value `1` because it compares `dog` to `dod`, whic
 
 The final edit distance is then found at the bottom right of the matrix.
 
-Take a look at the code snippet:
+Take a look at the implementation:
 
 ```javascript
 const editDistance = (strA, strB) => {
