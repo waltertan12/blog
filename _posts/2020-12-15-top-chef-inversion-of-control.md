@@ -11,7 +11,7 @@ I binge watched a lot of [Top Chef](https://en.wikipedia.org/wiki/Top_Chef) thro
 
 _[Sheldon](https://www.instagram.com/chefwonder/) is clearly the best_
 
-However, an issue I took with the show was how some of the challenges were set up. In most scenarios, the chefs were placed in huge disadvantages. For example, kitchens are missing burners or ovens, pantries are devoid of fresh produce, chefs are given ingredients which they are allergic to and cannot taste, time is severely limited, space is limited, etc.
+However, an issue I took with the show was how some of the challenges were set up. In most scenarios, the chefs were plauged with huge disadvantages. For example, kitchens would be missing burners or ovens, pantries were devoid of fresh produce, chefs were given ingredients which they are allergic to and cannot taste, time would be severely limited, space lacking, etc.
 
 To me, these restrictions felt gimmicky.
 
