@@ -2,7 +2,7 @@
 layout: post
 title:  "Git Streak"
 date:   2015-12-21 18:03:00 -0700
-categories: git
+tags: ["#git"]
 markdown: redcarpet
 ---
 So, if you've ever visited my GitHub profile, you might notice that I have a fairly solid streak going. As of today, it's 120 days in a row (the start was Day 1 of App Academy).

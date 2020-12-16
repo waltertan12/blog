@@ -2,7 +2,7 @@
 layout: post
 title:  "Whiteboarding: Backtracking"
 date:   2015-11-29 13:59:00 -0800
-categories: algorithms whiteboarding
+tags: ["#algorithms", "#whiteboarding"]
 markdown: redcarpet
 ---
 Today, I spent most of my time working on backtracking problems. For anyone that isn't sure, backtracking is a method that incrementally builds potential solutions to problems and abandons those solutions as soon as it determines the approach is invalid. In fewer words, the algorithm builds 

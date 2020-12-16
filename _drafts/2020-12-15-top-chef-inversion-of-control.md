@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "Top Chef and Inversion of Control"
-date: 2020-12-25 12:00:00 -0500
+title: "Top Chef as a Testing Framework"
+date: 2020-12-16 12:00:00 -0500
+keywords: "topchef,testing"
+categories: ["#topchef", "#testing"]
 --- 
 
 I binge watched a lot of [Top Chef](https://en.wikipedia.org/wiki/Top_Chef) throughout my quarantine in 2020. Part of the reason was that I was getting much more into cooking, so it was interesting to watch how chefs thought about and handled food. Another reason was that it as just plain entertaining -- where else can you watch a chefs compete in a mise en place relay race?
@@ -84,3 +86,21 @@ class Chef
 Instead of each chef having their own kitchen or pantry, they are given a kitchen or pantry at the time of cooking. This allows Top Chef to test each chef's `special cooking algorithm` as opposed to their kitchen or pantry. So, with respect to inversion of control, Top Chef really is testing how "good" a chef is.
 
 ### Unit Testing
+
+
+
+### TODO:
+- Title: Top Chef as a Testing Framework
+- Intro about top chef
+- Talk about top chef as a test
+	- what are we testing for?
+		- what is a top chef?
+		- what is a top restaurant?
+- Traditional model i.e. James Beard Best Chef
+	- Chef controls everything
+- Top Chef model 
+	- Chef is given tools / constraints to work in
+- Disclaimer
+	- Top Chef is for entertainment
+	- categories blend together
+	- Thomas Keller might fail Top Chef but Top Chef winner might not earn 3 michelin stars (not the michelin stars are everything)

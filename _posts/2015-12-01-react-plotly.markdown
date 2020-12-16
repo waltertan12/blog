@@ -2,7 +2,7 @@
 layout: post
 title:  "React Plotly"
 date:   2015-12-07 10:00:00 -0800
-categories: react
+tags: ["#react"]
 markdown: redcarpet
 ---
 So, Mike and I did an open source thing: 

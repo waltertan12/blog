@@ -2,7 +2,6 @@
 layout: post
 title:  "How I Coded For 159 Days Straight and Got a Job"
 date:   2016-02-06 12:07:00 -0700
-categories: jobsearch
 markdown: redcarpet
 ---
 Sorry for the click bait, I just couldn't help myself. Mike and I actually spent some time debating what would be better, 'How I Coded For 159 Days Straight and Got A Job', 'How I got Rejected From 40 Companies and Still Got A Job', etc. The possibilities were endless.

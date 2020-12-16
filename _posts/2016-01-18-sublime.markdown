@@ -2,7 +2,7 @@
 layout: post
 title:  "Sublime Text"
 date:   2016-01-18 20:07:00 -0700
-categories: text-editors
+tags: ["#text-editors"]
 markdown: redcarpet
 ---
 

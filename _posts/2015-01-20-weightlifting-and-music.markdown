@@ -2,7 +2,7 @@
 layout: post
 title:  "Weightlifting and Music"
 date:   2015-01-20 14:08:30 -0800
-categories: weightlifting music learning
+tags: ["#weightlifting", "#music", "#learning"]
 ---
 My workouts for the past year have heavily focused on the Olympic lifts. For those that might not know, the Olympic lifts consist of the snatch and the clean and jerk. These movements are some of the most effective ways to improve power output [1][2]. They're also incredibly fun to perform -- I always look forward to my pure Olympic lifting days.
 

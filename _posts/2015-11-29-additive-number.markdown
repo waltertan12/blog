@@ -2,7 +2,7 @@
 layout: post
 title:  "Whiteboarding: Additive Numbers"
 date:   2015-11-29 13:59:00 -0800
-categories: algorithms whiteboarding
+tags: ["#algorithms", "#whiteboarding"]
 markdown: redcarpet
 ---
 I've been working through some whiteboarding problems lately so I thought I might document some interesting ones here. Today, I came across the problem 'Additive Number'.

@@ -2,7 +2,7 @@
 layout: post
 title:  "Hash Tables"
 date:   2015-09-05 16:13:18 -0800
-categories: data structures hash
+tags: ["#data-structures"]
 ---
 Today was super cool! We traveled further into data structures and 
 algorithmic complexity by learning about Hash Maps. Hash Maps (or 

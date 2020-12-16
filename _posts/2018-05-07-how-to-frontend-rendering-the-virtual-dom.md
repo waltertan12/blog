@@ -2,7 +2,7 @@
 layout: post
 title: "How to Frontend: Rendering the Virtual DOM"
 date: 2018-05-07 12:00:00 -0700
-categories: javascript
+tags: ["javascript", "virtual-dom"]
 ---
 
 This series of posts focuses around how modern frontend view libraries work.

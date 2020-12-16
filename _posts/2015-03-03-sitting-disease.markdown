@@ -2,7 +2,7 @@
 layout: post
 title:  "Sitting Disease"
 date:   2015-03-03 18:53:09 -0800
-categories: sitting disease
+tags: ["#office", "#sitting-disease"]
 ---
 It's been awhile but I've finally made another page for Dublin Donut. This time the focus is on sitting disease.
 

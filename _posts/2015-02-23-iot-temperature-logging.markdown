@@ -2,7 +2,7 @@
 layout: post
 title:  "IoT: Temperature Logging"
 date:   2015-02-23 16:26:30 -0800
-categories: heat IoT raspberry pi
+tags: ["#raspberry-pi", "iot"]
 ---
 Here’s the latest with my Raspberry Pi:
 

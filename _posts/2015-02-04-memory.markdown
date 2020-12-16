@@ -2,7 +2,7 @@
 layout: post
 title:  "Memory"
 date:   2015-02-04 14:08:30 -0800
-categories: memory chobani
+tags: ["#memory", "#chobani"] 
 ---
 For the past week and a half, I've noticed a plastic bag full of chobanis placed clumsily on the door shelf of the work refrigerator. I've never seen chobani in there before, other than mine, and thought, "Cool, someone else eats chobani besides me."
 

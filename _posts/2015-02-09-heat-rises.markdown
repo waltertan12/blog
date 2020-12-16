@@ -2,7 +2,7 @@
 layout: post
 title:  "Heat Rises"
 date:   2015-02-09 18:08:30 -0800
-categories: heat south thermodynamics
+tags: ["#math", "#heat-and-mass-transfer"]
 ---
 I live in the south. It’s pretty warm, even in the winter. Check out the 5 day forecast:
 ![image](https://lh6.googleusercontent.com/0tipLNbxq-SXbLeetWoiY7YM8Vf6_pAodh5Wc570JALmw4FxR7K80YoQ70gwFnEkkeLFyVHBB_UFl3ULtolTP-UE6PfE_kVfH6E3If-6S5dYcTClOmFLAITH10jTx3_lMQ)

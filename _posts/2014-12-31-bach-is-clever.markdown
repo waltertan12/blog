@@ -2,7 +2,7 @@
 layout: post
 title:  "Bach is Clever"
 date:   2014-12-31 14:08:30 -0800
-categories: bach
+tags: ["#music", "#bach"]
 ---
 Here’s a little break from all the coding/startup/development/business stuff we focus on so often at Dublin. For this post, it’s all about music. More specifically, it’s about J.S. Bach and fugues.
 

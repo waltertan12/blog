@@ -2,7 +2,7 @@
 layout: post
 title:  "Topological Sort"
 date:   2015-12-06 10:27:00 -0800
-categories: algorithms
+tags: ["#algorithms", "#whiteboarding"]
 markdown: redcarpet
 ---
 Today I want to write a little bit about topological sorting. Topological sort deals with graphs and essentially orders vertices of the graph on dependencies.

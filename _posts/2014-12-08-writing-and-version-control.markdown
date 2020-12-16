@@ -2,7 +2,7 @@
 layout: post
 title:  "Writing and Version Control"
 date:   2014-12-08 14:08:30 -0800
-categories: version control
+tags: ["#version-control"]
 ---
 Having this blog has really forced me to examine the way I write. When I write a story or a paper, I just use some text editor and save only the latest copy. When I code something, I maintain all versions of the code and have the ability to branch that code. Since both processes are ultimately just manipulations of text, why did they differ? And why didn’t I use Git to write my short stories in college? (I did, however, write them in SublimeText. Thank you based distraction free mode.)
 

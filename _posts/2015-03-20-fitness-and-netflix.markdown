@@ -2,7 +2,7 @@
 layout: post
 title:  "Fitness and Netflix"
 date:   2015-03-20 17:38:30 -0800
-categories: fitness netflix chill
+tags: ["#fitness", "#netflix"]
 ---
 People know that they should eat better, exercise more, and in general, live a healthy lifestyle. Unfortunately, despite the vocalizations of _wanting_ to be healthier, it doesn’t really happen.
 

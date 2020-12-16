@@ -2,7 +2,7 @@
 layout: post
 title: "List Diffs"
 date: 2018-05-08 12:00:00 -0500
-categories: algorithms
+tags: ["#algorithms", "diffs"]
 --- 
 
 Diffs are an extremely important facet of programming. Tools like Git and even Google's "Did you mean X" feature, are built using diffs and [edit distance](http://blog.mikemccandless.com/2011/03/lucenes-fuzzyquery-is-100-times-faster.html).

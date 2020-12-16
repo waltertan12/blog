@@ -2,7 +2,7 @@
 layout: post
 title:  "Fun With Data"
 date:   2015-05-12 17:28:09 -0800
-categories: data crossfit
+tags: ["#data", "#crossfit", "#statistics"]
 ---
 Long time no post, yeah?
 

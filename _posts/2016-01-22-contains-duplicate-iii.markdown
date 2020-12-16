@@ -2,7 +2,7 @@
 layout: post
 title:  "Whiteboarding: Contains Nearby Almost Duplicate"
 date:   2016-01-22 12:07:00 -0700
-categories: whiteboarding
+tags: ["#algorithms", "#whiteboarding"]
 markdown: redcarpet
 ---
 

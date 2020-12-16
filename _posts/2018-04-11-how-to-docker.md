@@ -2,7 +2,7 @@
 layout: post
 title: "How to Docker"
 date: 2018-04-11 12:07:00 -0700
-categories: docker
+tags: ["#docker"]
 markdown: redcarpet
 ---
 # How to Docker
