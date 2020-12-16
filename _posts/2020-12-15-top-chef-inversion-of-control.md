@@ -93,7 +93,7 @@ class TinyChef
 
 Instead of each chef having their own kitchen or pantry, they are given a kitchen or pantry at the time of cooking. What this allows allows Top Chef to do is standardize variables that affect the output of each chef and zero in on what matters most -- their cooking!
 
-In essence, what Top Chef is that the qualities that they see are not the chef's ability to source or to manage, but rather, the `special cooking algorithm` that resides within each chef.
+Have access to A5 wagyu from Miyazaki prefacture? Who cares. Have amazing produce because you're based in California? 🤷. Have the latest in kitchen technology? Good for you. But on Top chef, it doesn't matter at all. In essence, what Top Chef selects for is not the chef's ability to source or to manage, but rather, the `special cooking algorithm` that resides within each chef. 
 
 ### Unit Testing
 To close out this ridiculous metaphor, we can view Top Chef as a suite of unit tests with insane edge cases (think cooking a meal in 15 minutes, cooking a meal with ingredients found in a vending machine, etc). And, if a chef pass all the unit tests, they win!
