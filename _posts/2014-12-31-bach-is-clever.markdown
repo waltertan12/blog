@@ -6,11 +6,11 @@ categories: bach
 ---
 Here’s a little break from all the coding/startup/development/business stuff we focus on so often at Dublin. For this post, it’s all about music. More specifically, it’s about J.S. Bach and fugues.
 
-For those that aren’t familiar, a fugue is composition style developed in the Middle Ages/Renaissance/Baroque era revolving around counterpoint. Generally, these pieces have two or more [voices](http://en.wikipedia.org/wiki/Part_(music)) and are built on two key components: a subject and an answer.
+For those that aren’t familiar, a fugue is composition style developed in the Middle Ages/Renaissance/Baroque era revolving around counterpoint. Generally, these pieces have two or more [voices](https://en.wikipedia.org/wiki/Part_(music)) and are built on two key components: a subject and an answer.
 
-To make it easier to understand, here’s an example of a fugue (Fugue No. 2 in C Minor WTC Book 1) with each voice highlighted as well a [link](http://www.youtube.com/watch?v=hiCbnW5DUBo) to a rendition by Glenn Gould, a pianist well known for his interpretations of Bach.
+To make it easier to understand, here’s an example of a fugue (Fugue No. 2 in C Minor WTC Book 1) with each voice highlighted as well a [link](https://www.youtube.com/watch?v=hiCbnW5DUBo) to a rendition by Glenn Gould, a pianist well known for his interpretations of Bach.
 
-![music](http://i.imgur.com/8wQUnF5.png)
+![music](https://i.imgur.com/8wQUnF5.png)
 
 Now, I realize that not everyone can read music, so, if you can read music, follow along as you listen to the video and listen for the call and response pattern. If you can’t, pay particular attention to the single voice melody from the 0:00-0:05 of the video (this is the subject), and listen to how the other voices respond and react to that initial theme.
 
@@ -18,9 +18,9 @@ In this particular piece, there are three voices (the bass, the alto, and the so
 
 Now that you understand the complexity of a fugue. I’m going to show you my favorite one and explain why it’s so impressive.
 
-Here’s a fugue from Suite No. 5 of the Bach Cello Suites (and a rendition of it by [Mstislav Rostropovich](http://youtu.be/rjSF9hjiMn4?t=3m21s)):
+Here’s a fugue from Suite No. 5 of the Bach Cello Suites (and a rendition of it by [Mstislav Rostropovich](https://youtu.be/rjSF9hjiMn4?t=3m21s)):
 
-![image](http://i.imgur.com/aXFvTDX.png)
+![image](https://i.imgur.com/aXFvTDX.png)
 
 The first thing you might notice from the sheet music is how there is only voice at a time. But you just told me you need multiple voices! How can it be a fugue there’s only one voice?
 

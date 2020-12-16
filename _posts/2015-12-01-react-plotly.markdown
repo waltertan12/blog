@@ -12,4 +12,4 @@ So, Mike and I did an open source thing:
 
 It's a React component that makes Plotly graphs!
 
-If you haven't looked at Mike's blog, [check it out](http://imbadatcleverurls.blogspot.com)!
+If you haven't looked at Mike's blog, [check it out](https://imbadatcleverurls.blogspot.com)!

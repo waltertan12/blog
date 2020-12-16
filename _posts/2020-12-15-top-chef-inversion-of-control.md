@@ -54,9 +54,9 @@ In most cases, chefs have their own kitchen and pantry to work with. So we repre
 
 Then, we want the chef to cook for us, we call `Chef::cook` without any arguments and they return us a meal!
 
-In this case, `Chef` makes a mean uni nigiri. But how do we compare it to another chef's way of creating an uni nigiri? Maybe the other chef has access to nori and wraps their nigiri in nori. Maybe another chef has access to Hokkaido uni. Maybe another only has access to long grain rice. 
+In this case, `Chef` makes a mean uni nigiri. But how do we compare it to another chef's way of creating an uni nigiri? Maybe the other chef has access to nori and wraps their nigiri in nori. Maybe another chef has access to Hokkaido uni. Maybe another only has access to long grain rice.
 
-In any case, we can't actually test the thing that's most important about the chef -- the `special cooking algorithm`!
+In any case, we can't be certain that we're testing the thing that's most important about the chef -- the `special cooking algorithm`! 
 
 ### Inversion of Control
 Here's what Top Chef tries to do, which also demonstrates inversion of control.

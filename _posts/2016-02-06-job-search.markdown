@@ -25,6 +25,6 @@ Here's the good stuff though:
 
 **1** job
 
-It's been a long road transition from a chemical engineer to a software dev but it's finally turning into a reality! On Monday, I start my first day at [Course Hero](http://coursehero.com). I'm really excited!
+It's been a long road transition from a chemical engineer to a software dev but it's finally turning into a reality! On Monday, I start my first day at [Course Hero](https://coursehero.com). I'm really excited!
 
 - Walter
