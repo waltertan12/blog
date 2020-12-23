@@ -18,13 +18,16 @@ However, an issue I took with the show was how some of the challenges were set u
 To me, these conditions felt gimmicky, and it led to ask the question: what is Top Chef really testing for?
 
 ### Test Goals
-Traditionally, when scouting for the best chefs, chefs are tightly coupled to their restaurants. Part of this is because one can't taste the food from a chef without going to a place where they serve their food i.e. their restaurant. But also, the role of the chef is multi-faceted. A chef's job is to produce food, yes, but a chef must also source ingredients, manage their kitchen staff, design and test menu items, etc -- it's much more than just cooking. And being so, a chef's success is tied to the success of their restaurant and vice versa.
+When the dining industry recognizes high performing chefs, they do so by honoring the restaurant the chef runs. Take a look at the Michelin guide -- the stars go to the restaurant but it's also an accolade for the chef behind the scenes. Even the James Beard award for Outstanding Chef makes note of the kitchen the chef runs.
+
+The main point being that the success of chefs and restaurants are tightly coupled. This is because the role of a chef is multi-faceted. A chef's job isn't only to cook, but to also source ingredients, manage the kitchen, manage the staff, design and test menu items, etc.
 
 So, is the best chef a someone who runs the best restaurants?
 
-Looking at the Michelin guide or the James Beard foundation sizes up chefs, it does seem that way.
+It kind of seems that way.
 
 So, why does Top Chef test the way it does?
+
 
 ### Programming to the rescue?
 Let's take a brief attempt to model chefs in a programmatic way. In this case, we model chefs to be in complete control things like their kitchen, staff, and pantry. This inherently couples their `cook`ing to things they provision themselves:
