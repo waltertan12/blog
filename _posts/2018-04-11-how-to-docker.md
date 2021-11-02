@@ -30,11 +30,11 @@ Abstracts the OS away from the application and solves the "but this works on my 
 Containers are super light weight compared to VMs as containers uses parts of the hosts OS's kernel
 
 _VMs_
-![VMs](https://www.docker.com/sites/default/files/VM%402x.png)
+![VMs](https://www.cloudsavvyit.com/p/uploads/2019/06/bc4f8762.png?trim=1,1&bg-color=000&pad=1,1)
 Look at the Guest OS layer, which is an entire operating system (read: heavy)
 
 _Containers_
-![Containers](https://www.docker.com/sites/default/files/Container%402x.png)
+![Containers](https://www.docker.com/sites/default/files/d8/styles/large/public/2018-11/container-what-is-container.png?itok=vle7kjDj)
 Look at how Docker replaces the Guest OS layer by virtualizing the OS and running containers (lightweight, baby) rather than full OSs
 
 ## Docker
@@ -45,7 +45,7 @@ git clone https://github.com/ahfarmer/emoji-search.git && cd emoji-search
 ```
 2. Run the app through a Docker container
 ```bash
-docker run --rm -it -v $(pwd):/var/www/html -w /var/www/html -p 3000:3000 node:8 yarn install && yarn start
+docker run --rm -it -v $(pwd):/var/www/html -w /var/www/html -p 3000:3000 node:14 yarn install && yarn start
 ```
 3. Go to `http://localhost:3000` and check out the app
 4. That's it!
@@ -72,9 +72,9 @@ Here's a breakdown of each argument
 - `-p container-port:host-port`
   - Maps a container port to host port
   - In this case, map container port 3000 to host port 3000
-- `node:8`
+- `node:14`
   - Image name
-  - In this case, use the [node:8 image from Dockerhub](https://hub.docker.com/_/node/)
+  - In this case, use the [node:14 image from Dockerhub](https://hub.docker.com/_/node/)
 - `yarn install && yarn start`
   - Command for the container to run
   - In this case, install the dependencies and start the dev server
@@ -87,8 +87,8 @@ A Dockerfile is basically a declarative way to automate image construction
 Here's how we would create a Dockerfile for the previous command
 
 ```Docker
-# Use the node:8 image from dockerhub
-FROM node:8
+# Use the node:14 image from dockerhub
+FROM node:14
  
 # Change the working directory to /var/www/html
 WORKDIR /var/www/html
@@ -96,7 +96,7 @@ WORKDIR /var/www/html
 # Copy the contents of the host's current directory to the working directory of the container
 COPY . .
  
-# Install the node dependencies
+# Install the ndocker run --rm -it -v $(pwd):/var/www/html -w /var/www/html -p 3000:3000 node:14 yarn install && yarn startode dependencies
 RUN yarn install
  
 # Expose the dev server port
